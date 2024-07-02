@@ -144,7 +144,7 @@ class BasicBot(
                 if pos != -1 and pos < categories_start:
                     categories_start = pos
 
-            return text[:categories_start] + insertion + "\n" text[categories_start:]
+            return text[:categories_start] + insertion + "\n" + text[categories_start:]
             
         def insert_after_reflist(text, insertion):
             reflist_tags = ["{{reflist}}", "{{reflist|2}}", "{{примітки}}", "<references />", "<references/>"]
