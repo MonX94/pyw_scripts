@@ -66,6 +66,11 @@ class BasicBot(
         
         print(self.current_page.extract(lines=2))
         parsed = wtp.parse(text)
+        
+        for template in parsed.templates:
+            if template.name.strip().lower() == 'bots' or template.name.strip().lower() == 'nobots': return None # don't do anything if the page is exempt
+
+        
         tags = parsed.get_tags(name="ref")
         tags_dict = {}
         for tag in tags:

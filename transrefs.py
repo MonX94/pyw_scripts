@@ -72,6 +72,7 @@ class BasicBot(
         r_templates = parsed.templates
         empty_rs = {}
         for template in r_templates:
+            if template.name.strip().lower() == 'bots' or template.name.strip().lower() == 'nobots': return None # don't do anything if the page is exempt
             if template.name.strip().lower() == 'r' and template.arguments:
                 #print("R: " + template.string)
                 name = template.arguments[0].value
